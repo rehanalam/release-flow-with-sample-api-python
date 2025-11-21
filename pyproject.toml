@@ -1,6 +1,6 @@
 [project]
 name = "release_flow_with_sample_api"
-version = "0.0.1"
+version = "1.1.1"
 description = "The official Python library for the release-flow-with-sample-api API"
 dynamic = ["readme"]
 license = "Apache-2.0"
