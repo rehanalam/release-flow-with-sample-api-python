@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1 (2025-11-22)
+
+Full Changelog: [v1.1.1...v1.2.1](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v1.1.1...v1.2.1)
+
+### Chores
+
+* add Python 3.14 classifier and testing ([f027f67](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/f027f67d6a1c95cced021382d8aef1777fa55b51))
+
 ## 1.1.1 (2025-11-21)
 
 Full Changelog: [v0.0.1...v1.1.1](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v0.0.1...v1.1.1)
