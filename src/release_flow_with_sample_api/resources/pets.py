@@ -246,7 +246,7 @@ class PetsResource(SyncAPIResource):
         Multiple status values can be provided with comma separated strings
 
         Args:
-          status: Status values that need to be considered for filter
+          status: Status values that need to be considered for filter.
 
           type: Status by type value that need to be considered for filter.
 
@@ -606,7 +606,7 @@ class AsyncPetsResource(AsyncAPIResource):
         Multiple status values can be provided with comma separated strings
 
         Args:
-          status: Status values that need to be considered for filter
+          status: Status values that need to be considered for filter.
 
           type: Status by type value that need to be considered for filter.
 
