@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0 (2025-11-24)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **api:** adds new param in status ep ([23e2e56](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/23e2e56a5e18f7dfd27d82812d56e808137c8a71))
+
 ## 1.3.0 (2025-11-24)
 
 Full Changelog: [v1.2.1...v1.3.0](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v1.2.1...v1.3.0)
