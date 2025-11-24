@@ -232,6 +232,7 @@ class PetsResource(SyncAPIResource):
         self,
         *,
         status: Literal["available", "pending", "sold"] | Omit = omit,
+        type: Literal["available", "pending", "sold"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -244,6 +245,8 @@ class PetsResource(SyncAPIResource):
 
         Args:
           status: Status values that need to be considered for filter
+
+          type: Status values that need to be considered for filter
 
           extra_headers: Send extra headers
 
@@ -260,7 +263,13 @@ class PetsResource(SyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=maybe_transform({"status": status}, pet_find_by_status_params.PetFindByStatusParams),
+                query=maybe_transform(
+                    {
+                        "status": status,
+                        "type": type,
+                    },
+                    pet_find_by_status_params.PetFindByStatusParams,
+                ),
             ),
             cast_to=PetFindByStatusResponse,
         )
@@ -581,6 +590,7 @@ class AsyncPetsResource(AsyncAPIResource):
         self,
         *,
         status: Literal["available", "pending", "sold"] | Omit = omit,
+        type: Literal["available", "pending", "sold"] | Omit = omit,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
         extra_headers: Headers | None = None,
@@ -593,6 +603,8 @@ class AsyncPetsResource(AsyncAPIResource):
 
         Args:
           status: Status values that need to be considered for filter
+
+          type: Status values that need to be considered for filter
 
           extra_headers: Send extra headers
 
@@ -609,7 +621,13 @@ class AsyncPetsResource(AsyncAPIResource):
                 extra_query=extra_query,
                 extra_body=extra_body,
                 timeout=timeout,
-                query=await async_maybe_transform({"status": status}, pet_find_by_status_params.PetFindByStatusParams),
+                query=await async_maybe_transform(
+                    {
+                        "status": status,
+                        "type": type,
+                    },
+                    pet_find_by_status_params.PetFindByStatusParams,
+                ),
             ),
             cast_to=PetFindByStatusResponse,
         )
