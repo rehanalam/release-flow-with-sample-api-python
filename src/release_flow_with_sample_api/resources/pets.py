@@ -248,7 +248,7 @@ class PetsResource(SyncAPIResource):
         Args:
           status: Status values that need to be considered for filter.
 
-          type: Status by type value that need to be considered for filter.
+          type: Status by type value that need to be considered for filter
 
           extra_headers: Send extra headers
 
@@ -608,7 +608,7 @@ class AsyncPetsResource(AsyncAPIResource):
         Args:
           status: Status values that need to be considered for filter.
 
-          type: Status by type value that need to be considered for filter.
+          type: Status by type value that need to be considered for filter
 
           extra_headers: Send extra headers
 
