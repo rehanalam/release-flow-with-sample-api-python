@@ -164,7 +164,7 @@ class PetsResource(SyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Pet:
         """
-        Update an existing pet by Id
+        Update an existing pet by Id.
 
         Args:
           status: pet status in the store
@@ -513,7 +513,7 @@ class AsyncPetsResource(AsyncAPIResource):
         timeout: float | httpx.Timeout | None | NotGiven = not_given,
     ) -> Pet:
         """
-        Update an existing pet by Id
+        Update an existing pet by Id.
 
         Args:
           status: pet status in the store
