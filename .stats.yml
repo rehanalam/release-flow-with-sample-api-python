@@ -1,4 +1,4 @@
 configured_endpoints: 19
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/release-flow-testing%2Frelease-flow-with-sample-api-af426a8fa82e4dd6f6743458cae49a4e3ff61aa82eea4d4feb18c4c3627b7027.yml
-openapi_spec_hash: ad87cdf224b955adf491b2f921b4b59d
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/release-flow-testing%2Frelease-flow-with-sample-api-c6f05acc2eb742be68035371663da88096f7004cd978117cbc7596cacc8fc568.yml
+openapi_spec_hash: 37c62eb4266dd6894e64ce2fa454b191
 config_hash: 4e01a86cc49b0452c735deb42251365a
