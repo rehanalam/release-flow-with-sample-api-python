@@ -217,6 +217,7 @@ class TestPets:
     def test_method_find_by_status_with_all_params(self, client: ReleaseFlowWithSampleAPI) -> None:
         pet = client.pets.find_by_status(
             status="available",
+            type="available",
         )
         assert_matches_type(PetFindByStatusResponse, pet, path=["response"])
 
@@ -570,6 +571,7 @@ class TestAsyncPets:
     async def test_method_find_by_status_with_all_params(self, async_client: AsyncReleaseFlowWithSampleAPI) -> None:
         pet = await async_client.pets.find_by_status(
             status="available",
+            type="available",
         )
         assert_matches_type(PetFindByStatusResponse, pet, path=["response"])
 
