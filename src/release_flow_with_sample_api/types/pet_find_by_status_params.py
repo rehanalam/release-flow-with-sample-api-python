@@ -8,8 +8,8 @@ __all__ = ["PetFindByStatusParams"]
 
 
 class PetFindByStatusParams(TypedDict, total=False):
-    status: Literal["available", "pending", "sold", "new"]
+    status: Literal["available", "pending", "sold", "new", "upcoming"]
     """Status values that need to be considered for filter"""
 
-    type: Literal["available", "pending", "sold", "new"]
+    type: Literal["available", "pending", "sold", "new", "upcoming"]
     """Status by type value that need to be considered for filter"""
