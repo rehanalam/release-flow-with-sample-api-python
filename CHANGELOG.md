@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.1.0 (2025-11-28)
+
+Full Changelog: [v2.0.0...v2.1.0](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v2.0.0...v2.1.0)
+
+### Features
+
+* **api:** manual updates ([db8ff7b](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/db8ff7bee32c5b79ff8fe5fd9fa7c7812428bf5c))
+* **api:** manual updates ([e6b95dd](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/e6b95dda18e02b19d3486a419efa7128201b01ff))
+
 ## 2.0.0 (2025-11-28)
 
 Full Changelog: [v1.5.0...v2.0.0](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v1.5.0...v2.0.0)
