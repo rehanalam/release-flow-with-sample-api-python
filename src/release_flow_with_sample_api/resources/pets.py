@@ -118,7 +118,7 @@ class PetsResource(SyncAPIResource):
 
     def retrieve(
         self,
-        pet_id: int,
+        pet_id: str,
         *,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -139,6 +139,8 @@ class PetsResource(SyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not pet_id:
+            raise ValueError(f"Expected a non-empty value for `pet_id` but received {pet_id!r}")
         return self._get(
             f"/pet/{pet_id}",
             options=make_request_options(
@@ -244,7 +246,7 @@ class PetsResource(SyncAPIResource):
         Multiple status values can be provided with comma separated strings
 
         Args:
-          status: Status values that need to be considered for filter
+          status: Status values that need to be considered for filter.
 
           type: Status by type value that need to be considered for filter
 
@@ -476,7 +478,7 @@ class AsyncPetsResource(AsyncAPIResource):
 
     async def retrieve(
         self,
-        pet_id: int,
+        pet_id: str,
         *,
         # Use the following arguments if you need to pass additional parameters to the API that aren't available via kwargs.
         # The extra values given here take precedence over values defined on the client or passed to this method.
@@ -497,6 +499,8 @@ class AsyncPetsResource(AsyncAPIResource):
 
           timeout: Override the client-level default timeout for this request, in seconds
         """
+        if not pet_id:
+            raise ValueError(f"Expected a non-empty value for `pet_id` but received {pet_id!r}")
         return await self._get(
             f"/pet/{pet_id}",
             options=make_request_options(
@@ -602,7 +606,7 @@ class AsyncPetsResource(AsyncAPIResource):
         Multiple status values can be provided with comma separated strings
 
         Args:
-          status: Status values that need to be considered for filter
+          status: Status values that need to be considered for filter.
 
           type: Status by type value that need to be considered for filter
 
