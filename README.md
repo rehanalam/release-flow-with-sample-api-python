@@ -87,6 +87,7 @@ pip install release_flow_with_sample_api[aiohttp]
 Then you can enable it by instantiating the client with `http_client=DefaultAioHttpClient()`:
 
 ```python
+import os
 import asyncio
 from release_flow_with_sample_api import DefaultAioHttpClient
 from release_flow_with_sample_api import AsyncReleaseFlowWithSampleAPI
@@ -94,7 +95,7 @@ from release_flow_with_sample_api import AsyncReleaseFlowWithSampleAPI
 
 async def main() -> None:
     async with AsyncReleaseFlowWithSampleAPI(
-        api_key="My API Key",
+        api_key=os.environ.get("PETSTORE_API_KEY"),  # This is the default and can be omitted
         http_client=DefaultAioHttpClient(),
     ) as client:
         order = await client.store.orders.create(
