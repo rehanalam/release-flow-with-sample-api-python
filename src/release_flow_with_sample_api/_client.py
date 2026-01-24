@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from typing import Any, Mapping
+from typing import TYPE_CHECKING, Any, Mapping
 from typing_extensions import Self, override
 
 import httpx
@@ -20,8 +20,8 @@ from ._types import (
     not_given,
 )
 from ._utils import is_given, get_async_library
+from ._compat import cached_property
 from ._version import __version__
-from .resources import pets, users
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
 from ._exceptions import APIStatusError, ReleaseFlowWithSampleAPIError
 from ._base_client import (
@@ -29,7 +29,12 @@ from ._base_client import (
     SyncAPIClient,
     AsyncAPIClient,
 )
-from .resources.store import store
+
+if TYPE_CHECKING:
+    from .resources import pets, store, users
+    from .resources.pets import PetsResource, AsyncPetsResource
+    from .resources.users import UsersResource, AsyncUsersResource
+    from .resources.store.store import StoreResource, AsyncStoreResource
 
 __all__ = [
     "Timeout",
@@ -44,12 +49,6 @@ __all__ = [
 
 
 class ReleaseFlowWithSampleAPI(SyncAPIClient):
-    pets: pets.PetsResource
-    store: store.StoreResource
-    users: users.UsersResource
-    with_raw_response: ReleaseFlowWithSampleAPIWithRawResponse
-    with_streaming_response: ReleaseFlowWithSampleAPIWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -104,11 +103,31 @@ class ReleaseFlowWithSampleAPI(SyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.pets = pets.PetsResource(self)
-        self.store = store.StoreResource(self)
-        self.users = users.UsersResource(self)
-        self.with_raw_response = ReleaseFlowWithSampleAPIWithRawResponse(self)
-        self.with_streaming_response = ReleaseFlowWithSampleAPIWithStreamedResponse(self)
+    @cached_property
+    def pets(self) -> PetsResource:
+        from .resources.pets import PetsResource
+
+        return PetsResource(self)
+
+    @cached_property
+    def store(self) -> StoreResource:
+        from .resources.store import StoreResource
+
+        return StoreResource(self)
+
+    @cached_property
+    def users(self) -> UsersResource:
+        from .resources.users import UsersResource
+
+        return UsersResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> ReleaseFlowWithSampleAPIWithRawResponse:
+        return ReleaseFlowWithSampleAPIWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> ReleaseFlowWithSampleAPIWithStreamedResponse:
+        return ReleaseFlowWithSampleAPIWithStreamedResponse(self)
 
     @property
     @override
@@ -216,12 +235,6 @@ class ReleaseFlowWithSampleAPI(SyncAPIClient):
 
 
 class AsyncReleaseFlowWithSampleAPI(AsyncAPIClient):
-    pets: pets.AsyncPetsResource
-    store: store.AsyncStoreResource
-    users: users.AsyncUsersResource
-    with_raw_response: AsyncReleaseFlowWithSampleAPIWithRawResponse
-    with_streaming_response: AsyncReleaseFlowWithSampleAPIWithStreamedResponse
-
     # client options
     api_key: str
 
@@ -276,11 +289,31 @@ class AsyncReleaseFlowWithSampleAPI(AsyncAPIClient):
             _strict_response_validation=_strict_response_validation,
         )
 
-        self.pets = pets.AsyncPetsResource(self)
-        self.store = store.AsyncStoreResource(self)
-        self.users = users.AsyncUsersResource(self)
-        self.with_raw_response = AsyncReleaseFlowWithSampleAPIWithRawResponse(self)
-        self.with_streaming_response = AsyncReleaseFlowWithSampleAPIWithStreamedResponse(self)
+    @cached_property
+    def pets(self) -> AsyncPetsResource:
+        from .resources.pets import AsyncPetsResource
+
+        return AsyncPetsResource(self)
+
+    @cached_property
+    def store(self) -> AsyncStoreResource:
+        from .resources.store import AsyncStoreResource
+
+        return AsyncStoreResource(self)
+
+    @cached_property
+    def users(self) -> AsyncUsersResource:
+        from .resources.users import AsyncUsersResource
+
+        return AsyncUsersResource(self)
+
+    @cached_property
+    def with_raw_response(self) -> AsyncReleaseFlowWithSampleAPIWithRawResponse:
+        return AsyncReleaseFlowWithSampleAPIWithRawResponse(self)
+
+    @cached_property
+    def with_streaming_response(self) -> AsyncReleaseFlowWithSampleAPIWithStreamedResponse:
+        return AsyncReleaseFlowWithSampleAPIWithStreamedResponse(self)
 
     @property
     @override
@@ -388,31 +421,103 @@ class AsyncReleaseFlowWithSampleAPI(AsyncAPIClient):
 
 
 class ReleaseFlowWithSampleAPIWithRawResponse:
+    _client: ReleaseFlowWithSampleAPI
+
     def __init__(self, client: ReleaseFlowWithSampleAPI) -> None:
-        self.pets = pets.PetsResourceWithRawResponse(client.pets)
-        self.store = store.StoreResourceWithRawResponse(client.store)
-        self.users = users.UsersResourceWithRawResponse(client.users)
+        self._client = client
+
+    @cached_property
+    def pets(self) -> pets.PetsResourceWithRawResponse:
+        from .resources.pets import PetsResourceWithRawResponse
+
+        return PetsResourceWithRawResponse(self._client.pets)
+
+    @cached_property
+    def store(self) -> store.StoreResourceWithRawResponse:
+        from .resources.store import StoreResourceWithRawResponse
+
+        return StoreResourceWithRawResponse(self._client.store)
+
+    @cached_property
+    def users(self) -> users.UsersResourceWithRawResponse:
+        from .resources.users import UsersResourceWithRawResponse
+
+        return UsersResourceWithRawResponse(self._client.users)
 
 
 class AsyncReleaseFlowWithSampleAPIWithRawResponse:
+    _client: AsyncReleaseFlowWithSampleAPI
+
     def __init__(self, client: AsyncReleaseFlowWithSampleAPI) -> None:
-        self.pets = pets.AsyncPetsResourceWithRawResponse(client.pets)
-        self.store = store.AsyncStoreResourceWithRawResponse(client.store)
-        self.users = users.AsyncUsersResourceWithRawResponse(client.users)
+        self._client = client
+
+    @cached_property
+    def pets(self) -> pets.AsyncPetsResourceWithRawResponse:
+        from .resources.pets import AsyncPetsResourceWithRawResponse
+
+        return AsyncPetsResourceWithRawResponse(self._client.pets)
+
+    @cached_property
+    def store(self) -> store.AsyncStoreResourceWithRawResponse:
+        from .resources.store import AsyncStoreResourceWithRawResponse
+
+        return AsyncStoreResourceWithRawResponse(self._client.store)
+
+    @cached_property
+    def users(self) -> users.AsyncUsersResourceWithRawResponse:
+        from .resources.users import AsyncUsersResourceWithRawResponse
+
+        return AsyncUsersResourceWithRawResponse(self._client.users)
 
 
 class ReleaseFlowWithSampleAPIWithStreamedResponse:
+    _client: ReleaseFlowWithSampleAPI
+
     def __init__(self, client: ReleaseFlowWithSampleAPI) -> None:
-        self.pets = pets.PetsResourceWithStreamingResponse(client.pets)
-        self.store = store.StoreResourceWithStreamingResponse(client.store)
-        self.users = users.UsersResourceWithStreamingResponse(client.users)
+        self._client = client
+
+    @cached_property
+    def pets(self) -> pets.PetsResourceWithStreamingResponse:
+        from .resources.pets import PetsResourceWithStreamingResponse
+
+        return PetsResourceWithStreamingResponse(self._client.pets)
+
+    @cached_property
+    def store(self) -> store.StoreResourceWithStreamingResponse:
+        from .resources.store import StoreResourceWithStreamingResponse
+
+        return StoreResourceWithStreamingResponse(self._client.store)
+
+    @cached_property
+    def users(self) -> users.UsersResourceWithStreamingResponse:
+        from .resources.users import UsersResourceWithStreamingResponse
+
+        return UsersResourceWithStreamingResponse(self._client.users)
 
 
 class AsyncReleaseFlowWithSampleAPIWithStreamedResponse:
+    _client: AsyncReleaseFlowWithSampleAPI
+
     def __init__(self, client: AsyncReleaseFlowWithSampleAPI) -> None:
-        self.pets = pets.AsyncPetsResourceWithStreamingResponse(client.pets)
-        self.store = store.AsyncStoreResourceWithStreamingResponse(client.store)
-        self.users = users.AsyncUsersResourceWithStreamingResponse(client.users)
+        self._client = client
+
+    @cached_property
+    def pets(self) -> pets.AsyncPetsResourceWithStreamingResponse:
+        from .resources.pets import AsyncPetsResourceWithStreamingResponse
+
+        return AsyncPetsResourceWithStreamingResponse(self._client.pets)
+
+    @cached_property
+    def store(self) -> store.AsyncStoreResourceWithStreamingResponse:
+        from .resources.store import AsyncStoreResourceWithStreamingResponse
+
+        return AsyncStoreResourceWithStreamingResponse(self._client.store)
+
+    @cached_property
+    def users(self) -> users.AsyncUsersResourceWithStreamingResponse:
+        from .resources.users import AsyncUsersResourceWithStreamingResponse
+
+        return AsyncUsersResourceWithStreamingResponse(self._client.users)
 
 
 Client = ReleaseFlowWithSampleAPI

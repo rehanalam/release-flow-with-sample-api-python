@@ -1,5 +1,38 @@
 # Changelog
 
+## 2.1.0 (2026-01-24)
+
+Full Changelog: [v2.0.0...v2.1.0](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v2.0.0...v2.1.0)
+
+### Features
+
+* **api:** manual updates ([db8ff7b](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/db8ff7bee32c5b79ff8fe5fd9fa7c7812428bf5c))
+* **api:** manual updates ([e6b95dd](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/e6b95dda18e02b19d3486a419efa7128201b01ff))
+* **client:** add support for binary request streaming ([3c3271b](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/3c3271bdae1a2ca106df68a13db637bda8d6382a))
+
+
+### Bug Fixes
+
+* **types:** allow pyright to infer TypedDict types within SequenceNotStr ([ee7b17a](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/ee7b17a4be8e71c238afd68154089ca4bde367cc))
+* use async_to_httpx_files in patch method ([931c270](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/931c270e32aa9d125455bd4f4cd32af75d5afd8b))
+
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([be8d556](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/be8d5564480827016fcb2bd935897f6754e2a294))
+* **docs:** use environment variables for authentication in code snippets ([72434c7](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/72434c7968369beefd199f5ea35ab5f2ab6c227d))
+* **internal:** add `--fix` argument to lint script ([76f142c](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/76f142cacbfdfd005b28d54335c8df7b38584ee8))
+* **internal:** add missing files argument to base client ([a4a1c4a](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/a4a1c4ab1bf0508eaa8a39ef241116dc65e1ea37))
+* **internal:** codegen related update ([806b8ea](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/806b8ea64bc46d155f7e2b186ff5c4f0d7376a62))
+* **internal:** update `actions/checkout` version ([648179b](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/648179babdb6778a0192abb72dae1f1726dd490b))
+* speedup initial import ([29fd44b](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/29fd44b0ca0e605fc24282de881285c58362cbc0))
+* update lockfile ([a48768c](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/a48768c399723d68ad44d7a238a9638045012a01))
+
+
+### Refactors
+
+* **internal:** switch from rye to uv ([9f57f42](https://github.com/rehanalam/release-flow-with-sample-api-python/commit/9f57f42426044ed26cb09168e2c155e10bf6e9a2))
+
 ## 2.0.0 (2025-11-28)
 
 Full Changelog: [v1.5.0...v2.0.0](https://github.com/rehanalam/release-flow-with-sample-api-python/compare/v1.5.0...v2.0.0)
